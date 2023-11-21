@@ -1,0 +1,69 @@
+<div class="container-new-skills">
+  <div class="form" [formGroup]="competenciaForm">
+    <mat-card-title class="title text-secondary">{{ titulo }}</mat-card-title>
+    <br />
+    <mat-card-subtitle class="subtitle">
+      Competencias para preparar participantes en programación competitiva
+    </mat-card-subtitle>
+    <br />
+    <input type="hidden" formControlName="id" class="input" />
+    <mat-form-field class="div-input">
+      <mat-label class="txt">Nombre de la competencia</mat-label>
+      <input matInput formControlName="nombre" class="input" />
+      <mat-error *ngIf="isValidField('nombre')">
+        {{ getFieldError('nombre') }}
+      </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="div-input">
+      <mat-label class="txt">Descripción</mat-label>
+      <textarea matInput formControlName="descripcion" class="input"></textarea>
+      <mat-error *ngIf="isValidField('descripcion')">
+        {{ getFieldError('descripcion') }}
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="div-input">
+      <mat-label class="txt">Fecha y hora Inicio</mat-label>
+      <input matInput type="datetime-local" formControlName="fechaInicio" class="custom-datetime-input"
+        (change)="onFechaInicioChange()" [max]="competenciaForm.get('fechaFinal')?.value" />
+      <mat-error *ngIf="isValidField('fechaInicio')">
+        {{ getFieldError('fechaInicio') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="div-input">
+      <mat-label class="txt">Fecha y hora Final</mat-label>
+      <input matInput type="datetime-local" formControlName="fechaFinal" class="custom-datetime-input"
+        [min]="competenciaForm.get('fechaInicio')?.value" />
+      <mat-error *ngIf="isValidField('fechaFinal')">
+        {{ getFieldError('fechaFinal') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="div-input">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="estado">
+        <mat-option value="VIGENTE">Vigente</mat-option>
+        <mat-option value="TERMINADO">Terminado</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="div-input">
+      <mat-label class="txt">Enlace de Inscripción</mat-label>
+      <input matInput formControlName="nombre" class="input" />
+      <mat-error *ngIf="isValidField('nombre')">
+        {{ getFieldError('nombre') }}
+      </mat-error>
+    </mat-form-field>
+    <div class="actions">
+      <button mat-raised-button color="warn" (click)="retornar()">Cancelar</button>
+      <button mat-raised-button color="primary" [disabled]="competenciaForm.invalid"
+        (click)="guardarCompetencia()">{{ nombreBoton }}</button>
+        
+    </div>
+  </div>
+</div>
+
+
+<!-- (click)="redirect('skills/new-skill/description')" -->

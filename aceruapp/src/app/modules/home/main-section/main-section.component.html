@@ -1,0 +1,17 @@
+<div class="section-home display-flex">
+
+  <div class="section-left display-flex">
+    <div class="title-home title-primary">{{this.dataMain.title}}</div>
+    <div class="description-home text-tertiary">{{this.dataMain.description}} </div>
+    <div class="actions-home" *ngIf="!tokenService.estaAutenticado()">
+      <button class="button" [routerLink]="['/auth/register']" routerLinkActive="router-link-active">Regístrate</button>
+    </div>
+  </div>
+
+  <div class="section-right">
+    <div class="image-home">
+      <img src="{{this.dataMain.image}}" alt="imagen no disponible" />
+    </div>
+  </div>
+
+</div>

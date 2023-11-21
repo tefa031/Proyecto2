@@ -1,0 +1,13 @@
+<div class="container-resources">
+  <div class="card-resource" *ngFor="let item of data"
+    [style]="{'flex-direction': item.orientation === 'left' ? '' : 'row-reverse'}">
+    <div class="left">
+      <div class="title title-primary">{{ item.title }}</div><br>
+      <div class="description text-tertiary">{{ item.description }}</div>
+      <div class="action">
+        <button class="button" [routerLink]="[item.routerLink]">{{ item.btnText }}</button>
+      </div>
+    </div>
+    <div class="right"><img [src]="item.image" alt="imagen no disponible"></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container-grid">
+    <div class="card text-tertiary" *ngFor="let item of data" (click)="handleCardClick(item)" >
+      <div class="card-actions hiddenParticipante">
+        <ng-container  *ngFor="let action of actions">
+          <img
+            [src]="action.value"
+            *ngIf="!(action.event === 'delete' && item.estado === 'Inactivo')"
+          >
+        </ng-container>
+      </div>
+      <div class="card-image">
+        <img [src]="item.imagenurl" alt="imagen no disponible">
+      </div>
+      <div class="card-title">{{item.nombre}}</div>
+    </div>
+  </div>

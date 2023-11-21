@@ -1,0 +1,78 @@
+<div class="container-ranking">
+  <div class="container-title">
+    <div class="title text-secondary">Ranking</div>
+  </div>
+  <div class="table">
+    <br>
+    <mat-card>
+      <div class="row">
+        <div class="row">
+          <div class="col">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-8">
+                      <mat-form-field style="width: 30%;">
+                        <mat-label>Filtrar búsqueda</mat-label>
+                        <input matInput (keyup)="aplicarFiltro($event)" placeholder="Buscar Estudiante" #input>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="ID">
+                    <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Id</th>
+                    <td mat-cell *matCellDef="let fila" style="width: 10%;"> {{fila.id}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="PARTICIPANTE">
+                    <th mat-header-cell *matHeaderCellDef> Participante </th>
+                    <td mat-cell *matCellDef="let fila"> {{fila.nombre}} </td>
+                  </ng-container>
+
+
+                  <ng-container matColumnDef="NICK">
+                    <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Usuario </th>
+                    <td mat-cell *matCellDef="let fila" style="width: 20%;"> {{fila.nombreUsuario}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="EMAIL">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let fila"> {{fila.email}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="RANGO">
+                    <th mat-header-cell *matHeaderCellDef> Rango </th>
+                    <td mat-cell *matCellDef="let fila">
+                      <span [ngClass]="fila.rango.toLowerCase()">{{ fila.rango }}</span>
+                      <i class="fas fa-medal fa-2x" [ngClass]="fila.rango.toLowerCase()"></i>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="ACCIONES" *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')">
+                    <th mat-header-cell *matHeaderCellDef style="width: 7%;"> Acciones </th>
+                    <td mat-cell *matCellDef="let fila" style="width: 7%;">
+                      <a class="pointer iconosAccion" matTooltip="Editar material" (click)="calificar(fila)">
+                        <mat-icon class="success-icon">
+                          <i class="fa-solid fa-pen-to-square" style="color: #036839;"></i>
+                        </mat-icon>
+                      </a>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+                  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[10, 5, 20]" aria-label="">
+                </mat-paginator>
+              </div>
+            </mat-card-content>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

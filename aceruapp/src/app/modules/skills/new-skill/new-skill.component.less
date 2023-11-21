@@ -1,0 +1,95 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+.container-new-skills{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  .form{
+    width: 40%;
+    background: #9ac8fd;
+    min-height: 500px;
+    padding: 20px 40px;
+    .subtitle{
+      color:#171717AB;
+      margin-bottom: 20px;
+    }
+    .section-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 90%;
+      label{
+        color:@color-primary;
+      }
+    }
+    .div-input{
+      margin-bottom: 20px;
+      color: #171717AB;
+      textarea{
+        min-height: 100px;
+        background-color: transparent;
+      }
+    }
+    .input-flex{
+      display: flex;
+      margin-bottom: 20px;
+      align-items: left;
+      width: 100%;
+      justify-content: left;
+      gap: 20px;
+      color: #171717AB;
+      img{
+        width: 30px;
+      }
+      input{
+        min-width: 350px;
+
+        border: none;
+        border-radius: 7px;
+        height: calc(100% - 80%);
+        min-height: 30px;
+        text-indent: 10px;
+      }
+    }
+    .actions{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      .cancel{
+background:@color-background-button-enter ;
+border:2px solid @color-background-button-enter;
+      }
+      .create{
+        background:@color-succes ;
+        border:2px solid @color-succes;
+      }
+      button{
+        min-width: 150px;
+        min-height: 40px;
+      }
+    }
+
+  }
+}
+
+
+/* Estilos personalizados para el campo datetime-local */
+.custom-datetime-input {
+  /* Cambiar el fondo del campo */
+  background-color: transparent;
+  width: 98%;
+
+  /* Cambiar el color del texto */
+  color: #171717AB;
+
+  /* Cambiar el tamaño del texto */
+  font-size: 16px;
+
+  /* Cambiar el borde y sus propiedades */
+
+  border-radius: 5px;
+  padding: 5px;
+}

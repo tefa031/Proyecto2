@@ -1,0 +1,80 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+.container-list-problems{
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  height: 100%;
+}
+.title{
+  margin-bottom: 30px;
+}
+.actions{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 40px;
+  align-items: center;
+  button{
+background: @color-background-button-enter;
+border:2px solid @color-background-button-enter;
+  }
+}
+.search {
+  position: absolute;
+  right: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.iconosAccion {
+margin: 3px;
+}
+.success-icon{
+color:green
+}
+.danger-icon{
+color:red
+}
+.pdf-icon{
+color:rgb(97, 74, 74)
+}
+
+.example-margin {
+margin: 0 10px;
+}
+
+.badge-success {
+  width: 30px;
+  //height: 10px;
+  background-color: #28a745; /* Color verde */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-info {
+  width: 65px;
+  background-color: #17a2b8; /* Color azul claro */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-warning {
+  width: 32px;
+  background-color: #ffc107; /* Color amarillo */
+  border-radius: 10px; /* Borde circular */
+  padding: 3px 7px; /* Espaciado interno */
+  color: black; /* Texto en negro */
+}
+
+.badge-danger {
+  width: 18%;
+  background-color: #dc3545; /* Color rojo */
+  border-radius: 0; /* Sin bordes redondeados */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+

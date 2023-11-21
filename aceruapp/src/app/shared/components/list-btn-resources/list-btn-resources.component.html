@@ -1,0 +1,12 @@
+<div class="container-list">
+  <div class="item-list" *ngFor="let item of data">
+    <div class="icon-body">
+      <div class="icon" [style.cursor]="'pointer'">
+        <img [src]="item.icon" alt="imagen no disponible" [routerLink]="[item.routerLink]">
+      </div>      
+    </div>
+    <div class="title text-tertiary"><strong>{{item.title}}</strong></div>
+    <div class="description text-tertiary">{{item.description}}</div>
+  </div>
+
+</div>

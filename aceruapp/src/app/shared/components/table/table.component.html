@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let header of data.headers">
+        {{header?.name||""}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data.data">
+      <td *ngFor="let h of data.headers">
+        <div class="text" *ngIf="d&&!isIcon(d[h.accesor])" [ngStyle]="{'cursor':d[h.accesor]==='Resolver'?'pointer':'default'}"(click)="sendEvent(d[h.accesor]==='Resolver'&&d)">
+          <strong *ngIf="d[h.accesor+'T']">{{d[h.accesor+'T']}}</strong>
+          <a [ngClass]="{'aState':h.accesor==='estado'}" [style.--backgroundBtn]="['Resolver','Privado'].includes(d[h.accesor])?'#FFBF60':'#00CA75'">{{d[h.accesor]}}</a>
+
+        </div>
+
+        <div class="icons" *ngIf="d &&isIcon(d[h.accesor])">
+          <img [src]="item.value" alt="imagen no disponible" *ngFor="let item of d[h.accesor]" (click)="sendEvent(d,item.event)">
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

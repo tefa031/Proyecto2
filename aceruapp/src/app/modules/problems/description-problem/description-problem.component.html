@@ -1,0 +1,71 @@
+<div class="container-description-problem">
+  <div class="header">
+    <div class="name-problem text-secondary">{{ dataProblema.nombre }}</div>
+  </div>
+
+  <hr class="separator">
+  <div class="body-description">
+
+    <div class="left">
+      <div class="card-description form">
+        <div class="section-description">
+          <strong><i class="fas fa-info-circle" style="color: blue;"></i> Descripción</strong>
+          <p>{{ dataProblema.descripcion }}</p>
+        </div>
+        <div class="section-description">
+          <strong><i class="fas fa-sign-in-alt" style="color: green;"></i> Entrada</strong>
+          <p>{{ dataProblema.entradas }}</p>
+        </div>
+        <div class="section-description">
+          <strong><i class="fas fa-sign-out-alt" style="color: red;"></i> Salida</strong>
+          <p>{{ dataProblema.salidas }}</p>
+        </div>
+        <div class="examples">
+          <div class="code-terminal-container">
+            <div class="code-card">
+              <div class="code-header">
+                <i class="fas fa-arrow-circle-left" style="color: purple;"></i> Entrada
+              </div>
+              <div class="code-body">
+                {{dataProblema.ejemploEntradas}}
+              </div>
+            </div>
+            &nbsp;
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <i class="fas fa-arrow-circle-right" style="color: orange;"></i> Salida
+              </div>
+              <div class="terminal-body">
+                {{dataProblema.ejemploSalidas}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="right">
+      <div class="card-profile">
+        <div class="data-profile">
+          <div class="txt"><strong><i class="fas fa-tags" style="color: blue;"></i>Categoría:</strong>
+            {{ dataProblema.categoria.nombre }}</div>
+          <div class="txt"><strong><i class="fas fa-file" style="color: green;"></i>Problema:</strong>
+            {{ dataProblema.nombre }}</div>
+          <div class="txt"><strong><i class="fas fa-star" style="color: red;"></i>Dificultad:</strong>
+            {{ dataProblema.dificultad }}</div>
+          <div class="edit-profile">
+            <button class="button button-resolver" (click)="openConsol()">
+              <i class="fas fa-code"></i> Ver código
+            </button>
+          </div>
+          <div class="change-password">
+            <button class="button button-cancelar" (click)="retornar()">
+              <i class="fas fa-times"></i> Regresar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

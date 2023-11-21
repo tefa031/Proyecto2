@@ -1,0 +1,111 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+.container-categories
+{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+.left, .right{
+
+  display: flex;
+justify-content: center;
+
+}
+.right{
+  width: 60%;
+  align-items: center;
+}
+.left{
+  width: 60%;
+  height: 100%;
+  align-items: baseline;
+  .body-form{
+    margin-top: 30px;
+    width: 90%;
+
+    textarea{
+      min-height: 90px;
+      text-align: left;
+    }
+    .actions{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+
+      .buttons{
+        button{
+          background: @color-background-button-enter;
+          border:2px solid @color-background-button-enter ;
+        }
+      }
+    }
+  }
+}
+}
+
+.form{
+  margin-top: 20px;
+  height: calc(100% - 10em);
+  .div-input-row {
+    display: flex;
+    justify-content: space-between;
+    .input2{
+      width: 95%!important;
+    }
+  }
+}
+@media  (max-width: 1400px) and(max-height:870px)  {
+  .form{
+    height: calc(100% - 5em);
+    textarea{
+      min-height: 30px!important;
+    }
+    .actions{
+      margin-top: 25px!important;
+    }
+  }
+}
+
+
+.archivo-message {
+  padding: 8px;
+  //background-color: #f2f2f2;
+  //border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.archivo-message.selected {
+  color: #3c763d;
+}
+
+
+.container-categories {
+  display: flex; /* Activa el modo flexbox */
+}
+
+.left {
+  flex: 40%; /* "left" ocupa el 30% del espacio disponible */
+  padding: 20px; /* Agrega un espaciado interno opcional para separar el contenido del borde */
+  box-sizing: border-box; /* Asegura que el padding se tenga en cuenta en el ancho total */
+}
+
+.right {
+  flex: 60%; /* "right" ocupa el 70% del espacio disponible */
+  padding: 10px; /* Agrega un espaciado interno opcional para separar el contenido del borde */
+  box-sizing: border-box; /* Asegura que el padding se tenga en cuenta en el ancho total */
+  height: 100%;
+}
+
+
+/* Contenido interno de left y right */
+.left > *, .right > * {
+  width: 100%; /* Establece el ancho del contenido interno al 100% */
+  box-sizing: border-box; /* Asegura que el padding se tenga en cuenta en el ancho total */
+}

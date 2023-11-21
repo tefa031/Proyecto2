@@ -1,0 +1,27 @@
+<br>
+<div class="container-categories">
+  <div class="row-title" style="height: 10px;">
+    <div class="title text-secondary">Problemas</div>
+  </div>
+  <hr class="separator">
+  <div class="actions" *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')">
+    <button class="button hiddenParticipante" (click)="redireccionarNuevaCategoria()">Nueva categoría</button>
+  </div>
+  <br>
+  <div class="filter-container">
+    <div class="search">
+      <mat-checkbox color="primary" class="example-margin" [(ngModel)]="showInactivos" (click)="mostrarInactivos()"
+        *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')">Mostrar Inactivos</mat-checkbox>
+    </div>
+    <div class="show-inactivos">
+      <input class="custom-input" type="text" placeholder="Buscar categoría por nombre..." [(ngModel)]="filterText"
+        (input)="filtrarCategorias()" />
+    </div>
+  </div>
+  <div class="body-categories">
+    <app-grid [data]="data" (eventEmmiter)="redirectWithCategoryData($event)"></app-grid>
+    <div *ngIf="data.length === 0" class="no-category-message">
+      <p class="message-text">NO HAY CATEGORÍA</p>
+    </div>
+  </div>
+</div>

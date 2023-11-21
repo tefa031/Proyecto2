@@ -1,0 +1,131 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+.container-login
+{
+ display: grid;
+ grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+
+ height: 100%;
+ .left, .right{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .left{
+  background: @color-primary;
+  box-shadow:inset -12px -12px 31px -7px @color-secondary;
+ }
+ .right{
+  background: @color-blue-secondary;
+ }
+ .forms{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+ }
+}
+.forms, .register{
+  background: #f7f7f7; // color-fondo-register
+  height: calc(100% - 20vh);
+  padding: 20px 15px;
+  border-radius: 20px;
+  width:calc(100% - 45%);
+  box-shadow: -6px 7px 29px -2px #535E6B;
+}
+.register{
+  text-align: -webkit-center;
+
+}
+.title{
+  text-align: center;
+  color: rgb(63, 62, 62);
+  height: 10%;
+}
+
+.form-login{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 30%);
+  height: 40%;
+  padding: 10px;
+  .txt-social-media{
+
+    margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  input, .btn-social-media{
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    height: calc(100% - 80%);
+  }
+  .button{
+    background: @color-background-button-enter;
+    border: 2px solid @color-background-button-enter;
+    color: white;
+    width: 100%;
+    height: calc(100% - 80%);
+  }
+  .btn-social-media{
+    background: white;
+    display: flex;
+    border: 2px solid;
+    align-items: center;
+    cursor: pointer;
+    .icon-google, .icon-facebook{
+      height: 100%;
+      width: 15%;
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+      position:relative;
+
+    }
+    img{
+      width: auto;
+  height: 80%;
+    }
+
+  }
+}
+.google{
+  border-color: @color-background-button-enter!important;
+  color: @color-background-button-enter!important ;
+}
+.facebook{
+  border-color: @color-primary!important;
+  color: @color-primary!important;
+}
+
+.icon-google:before{
+  content:"";
+  border-right: 2px solid @color-background-button-enter!important;
+  position: absolute;
+  height: 70%;
+  right: 0;
+}
+.icon-facebook:before{
+  content:"";
+  border-right: 2px solid @color-primary!important;
+  position: absolute;
+  height: 70%;
+  right: 0;
+}
+
+.message {
+  height: 10%;
+
+  a {
+    cursor: pointer;
+    font-size: calc(100% - 1px);
+    color: #327cbd; // color-register
+    &:hover {
+      color: @color-primary;
+    }
+  }
+}

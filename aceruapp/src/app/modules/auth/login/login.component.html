@@ -1,0 +1,37 @@
+<div class="container-login">
+  <div class="left">
+    <div class="icon-aceru">
+      <img src="assets/images/logo/ACERU.png" width="400" height="400" alt="imagen no disponible" />
+    </div>
+  </div>
+  <div class="right">
+    <div class="forms" *ngIf="actualmodule === 'login'">
+      <br>
+      <div class="title text-secondary">Login</div>
+      <br>
+      <div [formGroup]="loginForm" class="form-login">
+
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Nombre Usuario</mat-label>
+          <input matInput type="nombreUsuario" formControlName="nombreUsuario" placeholder="Nombre Usuario" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Contraseña" />
+        </mat-form-field>
+
+        <button mat-raised-button class="button" style="min-height: 45px;" [disabled]="loginForm.invalid"
+          (click)="login()">Ingresar&nbsp; <i class="fa-solid fa-right-to-bracket fa-lg"></i></button>
+      </div>
+
+      <div class="form-login" style="align-items: end; margin-top:24px">
+        <div class="message" (click)="redirect('auth/register')">
+          <a>¿No tienes cuenta? Registrate.</a>
+        </div>
+      </div>
+    </div>
+    <div class="register" *ngIf="actualmodule === 'register'"><app-register></app-register></div>
+  </div>
+</div>
+

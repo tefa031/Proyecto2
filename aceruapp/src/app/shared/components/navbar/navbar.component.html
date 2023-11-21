@@ -1,0 +1,61 @@
+<div class="container-navbar">
+  <div class="content-navbar">
+    <div class="logo">
+      <img
+        src="assets/images/logo/ACERU.png"
+        width="50"
+        height="50"
+        alt="imagen no disponible"
+        (click)="redirect('home')"
+      />
+    </div>
+
+    <!-- Links para la página de inicio -->
+    <div class="text-links" *ngIf="getActualPage('home')">
+      <a *ngFor="let item of (tokenService.estaAutenticado() ? textLinks.login : textLinks.notLogin)"
+        href="{{ item.path }}">
+        {{ item.name }}
+      </a>
+    </div>
+
+    <!-- Links para páginas diferentes de la página de inicio -->
+    <div class="text-links" *ngIf="!getActualPage('home') && tokenService.estaAutenticado()">
+      <a *ngFor="let item of textLinks.login" href="{{ item.path }}"
+        [ngClass]="{ 'text-selected': getActualPage(item.path) }">
+        {{ item.name }}
+      </a>
+    </div>
+
+    <!-- Espacio para mostrar texto adicional si no estás en la página de inicio y no estás autenticado -->
+    <div class="text-links" *ngIf="!getActualPage('home') && !tokenService.estaAutenticado()"></div>
+
+    <div class="actions">
+      <!-- Botones de inicio de sesión y registro -->
+      <div class="buttons" *ngIf="!tokenService.estaAutenticado()">
+        <button class="button enter" (click)="redirect('auth/login')">Ingresar <i
+            class="fa-solid fa-right-to-bracket"></i></button>
+        <button class="button sign-up" (click)="redirect('auth/register')">Regístrate <i
+            class="fa-solid fa-user-plus"></i></button>
+      </div>
+
+      <!-- Información del usuario autenticado -->
+      <div class="user-info" *ngIf="tokenService.estaAutenticado()">
+        <span class="user-name">
+          {{ (tokenService.getAuthorities()[0] !== 'ROLE_ADMIN' ? 'Participante' : 'Administrador') + ' | ' + dataService.getUsuario()?.nombre}}
+        </span>&nbsp;
+        <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="profile-button">
+          <img
+            [src]="dataService.getUsuario()?.foto ? 'data:image/jpeg;base64,' + dataService.getUsuario()?.foto : 'assets/images/profile/foto-perfil.jpeg'"
+            alt="imagen no disponible" class="profile-image" />
+        </button>
+      </div>
+
+      <!-- Menú desplegable para opciones adicionales -->
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item [routerLink]="['profile']">Mi perfil</button>
+        <button mat-menu-item (click)="logOut()">Cerrar sesión</button>
+      </mat-menu>
+    </div>
+  </div>
+</div>
+<div class="dummy-block"></div>

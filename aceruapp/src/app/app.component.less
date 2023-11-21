@@ -1,0 +1,24 @@
+.container{
+  display: grid;
+  grid-template-areas: "h"
+                       "b"
+                       "f";
+  width: 100%;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  font-family: 'Arial';
+  font-style: normal;
+.header{
+grid-area:h;
+}
+.body{
+  grid-area:b;
+  min-height: calc(100vh - 5vh);
+  max-width: 100vw;
+    overflow: hidden;
+}
+.footer{
+  grid-area:f;
+}
+}
+

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AceruApplication<aceru>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aceruservicios.AceruApplication",
+            "projectName": "aceru",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

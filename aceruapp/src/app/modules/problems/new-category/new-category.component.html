@@ -1,0 +1,64 @@
+<div class="container-categories">
+  <div class="left">
+    <div class="form">
+      <div class="title" style="text-align: center;"><strong>{{ titulo }}</strong></div>
+      <br>
+      <div class="subtitle">Nuevos temarios de retos!</div>
+      <br>
+      <form [formGroup]="categoriaform" style="width: 100%;" novalidate enctype="multipart/form-data">
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="div-input2">
+          <mat-label>Nombre de la categoría</mat-label>
+          <input class="input2" matInput formControlName="nombre">
+          <mat-error *ngIf="isValidField('nombre')">
+            {{ getFieldError('nombre') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="div-input2">
+          <mat-label>Descripción de la categoría</mat-label>
+          <textarea matInput formControlName="descripcion"></textarea>
+          <mat-error *ngIf="isValidField('descripcion')">
+            {{ getFieldError('descripcion') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="div-input2">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado">
+            <mat-option value="Activo">Activo</mat-option>
+            <mat-option value="Inactivo">Inactivo</mat-option>
+          </mat-select>
+          <mat-error *ngIf="isValidField('estado')">
+            {{ getFieldError('estado') }}
+          </mat-error>
+        </mat-form-field>
+
+        <div class="actions">
+          <div class="div-file">
+            <p class="texto">Agregar imagen</p>
+            <input #imagenInputFile type="file" formControlName="imagen" accept="image/png, image/jpeg, image/gif"
+              (change)="mostrarVistaPrevia()">
+          </div>
+          <br>
+          <div>
+            <img id="imagenPreview" src="#" alt="Vista previa de la imagen seleccionada" height="170px" width="100%"
+              (load)="banImagenprev()">
+            <input type="hidden" formControlName="imagenurl" (change)="banImagenprev()">
+          </div>
+          <br>
+          <div class="buttons">
+            <button mat-stroked-button color="warn" (click)="limpiardata()">Cancelar</button>&nbsp;&nbsp;
+            <button mat-flat-button color="primary" [disabled]="categoriaform.invalid"
+              (click)="saveCategory()">{{ nombreboton }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="right">
+    <img src="assets/images/problems/icono_busqueda.png" alt="imagen no disponible">
+  </div>
+
+</div>

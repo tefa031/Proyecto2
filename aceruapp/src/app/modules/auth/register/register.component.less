@@ -1,0 +1,51 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+
+.container-register {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 30%);
+  height: 100%;
+  padding: 10px;
+  .title {
+    color: rgb(63, 62, 62); // color-register-title
+    text-align: center;
+  }
+
+  .actions {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    .button {
+      background: #ca2a30;
+      border: 2px solid #e14b50;
+      width: 100%;
+      height: calc(100% - 80%);
+      align-items: center;
+    }
+  }
+  .message {
+    height: 10%;
+    text-align: end;
+    a {
+      cursor: pointer;
+      font-size: calc(100% - 1px);
+      color: #327cbd; // color-register
+      &:hover {
+        color: @color-primary;
+      }
+    }
+  }
+  .input{
+    height: 100% !important;
+  }
+
+
+  button {
+    height: 70% !important;
+    width: 100%;
+   
+  }
+}

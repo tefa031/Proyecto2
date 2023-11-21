@@ -1,0 +1,114 @@
+@import "../../shared-styles/shared-styles.less";
+.dummy-block {
+  height: 70px;
+}
+.container-navbar{
+background: @color-background-navbar;
+display:flex;
+flex-direction: column;
+width: 100%;
+min-height: 70px;
+position: fixed;
+top: 0;
+justify-content: center;
+box-shadow: 0px 0px 5px -1px @color-secondary;
+z-index: 1;
+.content-navbar{
+  padding: 0 10px;
+  display: flex;
+  justify-content: unset;
+  min-height:  40px;;
+.logo{
+  display:flex;
+  width:15%;
+  img{
+    width: fit-content;
+    cursor: pointer;
+  }
+}
+.text-links{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+
+  align-items: center;
+  gap: 6%;
+  a{
+    color: @color-text-primary;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+      color:@color-background-button-enter;
+    }
+  }
+}
+.text-selected{
+color:@color-background-button-enter!important;
+
+}
+.actions{
+display:flex;
+width: 25%;
+justify-content: end;
+align-items: center;
+.buttons{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 5%;
+  .button{
+    height: 100%;
+    width: auto;
+  }
+  .sign-up, .enter
+  {
+    background:@color-background-button-enter ;
+    border:2px solid @color-background-button-enter;
+  }
+
+}
+}
+}
+}
+
+
+.mat-icon-button{
+  background: @color-background-button-enter;
+  border-radius: 5px;
+  line-height: normal;
+  .mat-icon{
+    font-size: 30px;
+    height: 30px;
+    width: auto;
+    line-height: normal;
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-right: 8px; 
+  color: white;
+}
+
+
+.profile-button {
+  width: 50px;
+  height: 50px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  border: none; 
+  background: none; 
+}
+
+.profile-image {
+  width: 60px;
+  height: 45px; 
+  border: 2px solid gray; 
+  border-radius: 20%; 
+}

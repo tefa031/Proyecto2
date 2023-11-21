@@ -1,0 +1,55 @@
+<div class="container-description-problem" *ngIf="dataCompetencia">
+  <div class="header">
+    <div class="name-problem text-secondary">{{ dataCompetencia.nombre }}</div>
+  </div>
+  <hr class="separator">
+  <div class="body-description">
+    <div class="left">
+      <button class="button button-description">
+        <i class="fas fa-info-circle"></i> Descripción
+      </button>
+      <div class="card-description form">
+        <div class="section-description">
+          <strong><i class="fas fa-tag" style="color: green;"></i> Nombre</strong>
+          <label>{{ dataCompetencia.nombre }}</label>
+        </div>
+        <div class="section-description">
+          <strong><i class="fas fa-check-circle" style="color: red;"></i> Estado</strong>
+          <label>{{ dataCompetencia.estado }}</label>
+        </div>
+        <div class="section-description description">
+          <strong><i class="fas fa-file-alt" style="color: orange;"></i> Descripción</strong>
+          <label>{{ dataCompetencia.descripcion }}</label>
+        </div>
+        <div class="row">
+          <div class="section-description">
+            <strong><i class="fas fa-calendar" style="color: purple;"></i> Fecha programada</strong>
+            <label>{{ dataCompetencia.fechaInicio }}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="section-description">
+            <strong><i class="fas fa-clock" style="color: gray;"></i> Duración de la competencia</strong>
+            <label>{{ diferencia }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card-profile">
+        <div class="data-profile">
+          <div class="edit-profile hiddenAdministrador">
+            <button class="button btn-custom" (click)="inscribirse()">
+              <i class="fas fa-user-plus"></i> Inscribirse
+            </button>
+          </div>
+          <div class="change-password">
+            <button class="button btn-custom" (click)="redirect('skills')">
+              <i class="fas fa-times"></i> Regresar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

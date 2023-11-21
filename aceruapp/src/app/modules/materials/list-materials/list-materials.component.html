@@ -1,0 +1,97 @@
+<div class="container-categories">
+  <div class="title text-secondary" style="height: 10px;">Material - {{ nombreCategoria }}</div>
+  <hr class="separator">
+  <br>
+  <div class="actions " *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')">
+    <button class="button hiddenParticipante" (click)="mostrarformnuevomaterial()">
+      <i class="fas fa-plus"></i> Nuevo Material
+    </button>
+  </div>
+  <br>
+  <mat-card>
+    <div class="row">
+      <div class="row">
+        <div class="col">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-8">
+                    <mat-form-field style="width: 30%;">
+                      <mat-label>Filtrar búsqueda</mat-label>
+                      <input matInput (keyup)="aplicarFiltro($event)" placeholder="Nombre del Material" #input>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="ID">
+                  <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Id</th>
+                  <td mat-cell *matCellDef="let fila" style="width: 10%;"> {{fila.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="MATERIAL">
+                  <th mat-header-cell *matHeaderCellDef> Material </th>
+                  <td mat-cell *matCellDef="let fila"> {{fila.nombre}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="DESCRIPCION">
+                  <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                  <td mat-cell *matCellDef="let fila"> {{fila.descripcion}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="TIPO MATERIAL" style="width: 100%;">
+                  <th mat-header-cell *matHeaderCellDef> Tipo material </th>
+
+                  <td mat-cell *matCellDef="let fila">
+                    <div [ngClass]="{
+                                    'badge badge-success': fila.tipoMaterial === 'PDF',
+                                    'badge badge-info': fila.tipoMaterial === 'WORD',
+                                    'badge badge-warning': fila.tipoMaterial === 'VIDEO',
+                                    'badge badge-ppt': fila.tipoMaterial === 'PPT',
+                                    'badge badge-txt': fila.tipoMaterial === 'TXT',
+                                    'badge badge-excel': fila.tipoMaterial === 'EXCEL'
+                                  }">
+                      {{ fila.tipoMaterial }}
+                    </div>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="ACCIONES">
+                  <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Acciones </th>
+                  <td mat-cell *matCellDef="let fila" style="width: 10%;">
+                    <a class="pointer iconosAccion" matTooltip="Editar material"
+                      *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')" (click)="editarMaterial(fila)">
+                      <mat-icon class="success-icon">
+                        <i class="fa-solid fa-pen-to-square" style="color: #036839;"></i>
+                      </mat-icon>
+                    </a>
+                    <a class="pointer iconosAccion" matTooltip="Eliminar material"
+                      *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')" (click)="eliminarMaterial(fila)">
+                      <mat-icon class="danger-icon">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </mat-icon>
+                    </a>
+                    <a class="pointer iconosAccion" matTooltip="Detalle material" (click)="detalleMaterial(fila)">
+                      <mat-icon class="info-icon">
+                        <i class="fa-solid fa-file-lines" style="color: #183153;"></i>
+                      </mat-icon>
+                    </a>
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[10, 5, 20]" aria-label="">
+              </mat-paginator>
+            </div>
+          </mat-card-content>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

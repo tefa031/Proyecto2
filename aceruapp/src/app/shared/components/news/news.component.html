@@ -1,0 +1,22 @@
+<div class="container-news">
+  <div class="title text-secondary">{{data.title}}</div>
+  <div class="subtitle text-tertiary">{{data.subtitle}}</div>
+  <div class="body-news">
+    <div class="card" *ngFor="let item of data.news">
+      <div class="card-actions hiddenParticipante" *ngIf="this.serviceUser.islogIn()"><img [src]="action.value"
+          *ngFor="let action of actions" (click)="action?.callback(item)"></div>
+      <div class="image"><img [src]="item.image" alt="Imagen no disponible"></div>
+      <div class="text">
+        <div class="title-news text-tertiary"><textarea [disabled]="!item?.edit" class="text-tertiary"
+            [style.border]="!item?.edit?'none':'solid 1px'"
+            [style]="{'font-weight':'bold','width':70+'%'}">{{item.titleNews}}</textarea></div>
+        <div class="description-news text-tertiary"><textarea [disabled]="!item?.edit" class="text-tertiary"
+            [style.border]="!item?.edit?'none':'solid 1px'"
+            [style]="{'min-height': 100+'%'}">{{item.descriptionNews}}</textarea></div>
+      </div>
+    </div>
+  </div>
+  <div class="new-card hiddenParticipante" *ngIf="this.serviceUser.islogIn()">
+    <img alt="imagen no disponible" src="assets/images/crud/addition.png">
+  </div>
+</div>

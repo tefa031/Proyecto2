@@ -1,0 +1,8 @@
+<div class="container-about">
+  <div class="title title-primary">{{data.title}}</div>
+  <hr class="separator">
+  <div class="description text-tertiary">{{data.description}}</div>
+  <div class="list-logos">
+    <div class="logo" *ngFor="let item of data.logos"><img [src]="item.imageUrl" alt="imagen no disponible" ></div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container-profile">
+  <hr class="separator">
+  <div class="container-data">
+    <div class="form-profile" [formGroup]="perfilForm">
+      <div class="title text-secondary"> Datos Personales</div>
+      <input type="hidden" formControlName="id">
+      <div class="div-input">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre" placeholder="Nombre">
+          <mat-error *ngIf="isValidField('nombre')">
+            {{ getFieldError('nombre') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="div-input">
+        <mat-form-field appearance="outline">
+          <mat-label>Nick</mat-label>
+          <input matInput formControlName="nombreUsuario" placeholder="nombreUsuario">
+          <mat-error *ngIf="isValidField('nombreUsuario')">
+            {{ getFieldError('nombreUsuario') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="div-input">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="E-mail" (keyup)="isValidadEmail($event)">
+          <mat-error *ngIf="isValidField('email')">
+            {{ getFieldError('email') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="div-input">
+        <mat-form-field appearance="outline">
+          <mat-label>Rol</mat-label>
+          <select matNativeControl formControlName="rol" name="miselect" class="mi-select">
+            <option value="admin">Administrador</option>
+            <option value="user">Participante</option>
+          </select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="card-profile">
+      <img [src]="foto ? 'data:image/jpeg;base64,' + foto : 'assets/images/profile/foto-perfil.jpeg'" alt="imagen no disponible" style="height: 260px; width: 200px;">
+      <div class="data-profile">
+        <div class="level">Nivel</div><br>
+        <div class="name">{{this.perfilForm.controls['nombre'].value}}</div><br>
+        <div class="edit-profile"><button class="button"  [disabled]="perfilForm.invalid" (click)="actualizarPerfil()">Actualizar perfil</button></div><br>
+        <div class="change-password" routerLink="change-password"><button class="button">Cambiar contraseña</button></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

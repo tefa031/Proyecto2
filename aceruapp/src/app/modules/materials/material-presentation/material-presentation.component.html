@@ -1,0 +1,34 @@
+<div class="container-description-problem">
+  <div class="header">
+    <div class="name-problem text-secondary">{{ data.nombre }}</div>
+  </div>
+  <hr class="separator">
+  <div class="body-description">
+    <ng-container>
+      <div class="left">
+        <iframe *ngIf="resourceUrl" [src]="resourceUrl" frameborder="0" width="100%" height="600"
+          style="border: 2px solid gray;"></iframe>
+      </div>
+      <div class="right">
+        <div class="card-profile" style="height: 20%">
+          <div class="data-profile">
+            <div class="txt"><strong><i class="fas fa-file-alt" style="color: #007bff;"></i> Título:</strong>
+              &nbsp;{{ data.nombre }}</div>
+            <div class="txt"><strong><i class="fas fa-file" style="color: #dc3545;"></i> Tipo Material:</strong>
+              &nbsp;{{ data.tipoMaterial }}</div>
+            <div class="edit-profile">
+              <a class="button no-link" href="javascript:void(0);" (click)="download(data.url)">
+                <i class="fas fa-download"></i> Descargarlo ahora
+              </a>
+            </div>
+
+            <div class="change-password">
+              <button class="button" (click)="redirect()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+  </div>
+</div>

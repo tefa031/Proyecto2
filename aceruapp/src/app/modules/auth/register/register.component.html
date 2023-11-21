@@ -1,0 +1,69 @@
+<div class="container-register" [formGroup]="registerForm">
+  <div class="title text-secondary"> Registro </div>
+  <br> <br>
+  <div class="div-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" placeholder="Nombre">
+      <mat-error *ngIf="isValidField('nombre')">
+        {{ getFieldError('nombre') }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="div-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="nick" placeholder="nick">
+      <mat-error *ngIf="isValidField('nick')">
+        {{ getFieldError('nick') }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="div-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="E-mail" (keyup)="isValidadEmail($event)">
+      <mat-error *ngIf="isValidField('email')">
+        {{ getFieldError('email') }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="div-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput formControlName="contrasena" type="password" placeholder="Contraseña">
+      <mat-error *ngIf="isValidField('contrasena')">
+        {{ getFieldError('contrasena') }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="div-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Rol</mat-label>
+      <select matNativeControl formControlName="rol" name="miselect">
+        <option value="user">Participante</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="div-input">
+    <mat-label style="font-size: 14px; margin-bottom: 4px;">Foto de perfil </mat-label><br>
+    <input #imagenInputFile type="file" accept="image/*" formControlName="foto" (change)="onFileSelected($event)">
+    <mat-error *ngIf="isValidField('foto')" style="margin-top: 5px; font-size: 12px;">
+      {{ getFieldError('foto') }}
+    </mat-error>
+  </div>
+  <br>
+  <div class="actions">
+    <button mat-raised-button class="button" [disabled]="registerForm.invalid" (click)="register()">Registrar</button>
+  </div>
+
+  <div class="message" (click)="redirect('auth/login')">
+    <a>¿Ya tienes una cuenta? Ingresa.</a>
+  </div>
+  <br><br>
+</div>

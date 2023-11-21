@@ -1,0 +1,91 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+
+.container-description-problem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .body-description {
+    display: flex;
+    height: 100%;
+    margin-top: 15px;
+    .left {
+      width: 70%;
+.button-description{
+  min-width: 93%;
+  background: @color-warning;
+  border:2px solid @color-warning;
+  font-weight: bold;
+  font-size: x-large;
+    margin-bottom: 30px;
+}
+      .card-description {
+        min-height: calc(100% - 15em);
+        .section-description {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          width: 90%;
+          gap: 5px;
+
+        }
+      }
+
+      .form {
+        color: black;
+        width: 90%;
+        gap: 20px;
+        min-height: 400px;
+        .description{
+          min-height: 200px;
+        }
+      }
+    }
+    .right{
+      width: 30%;
+      display: flex;
+      justify-content: flex-end;
+
+    margin-top: 65px;
+      .card-profile {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 7px;
+        box-shadow: 0px 0px 17px 1px @color-shadow;
+        padding: 20px 0;
+        max-width: 360px;
+        height: 30%;
+      .data-profile {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 85%;
+          align-items: center;
+          height: -webkit-fill-available;
+          color: @color-text-secondary;
+          font-weight: bold;
+         .edit-profile {
+            .button {
+              background: @color-succes;
+              border: 2px solid @color-succes;
+            }
+          }
+          .change-password {
+            .button {
+              background: @color-background-button-enter;
+              border: 2px solid @color-background-button-enter;
+            }
+          }
+        }
+      }
+    }
+  }
+}

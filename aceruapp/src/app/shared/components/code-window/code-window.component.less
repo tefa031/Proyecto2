@@ -1,0 +1,53 @@
+@import "../../shared-styles/shared-styles.less";
+.container-window
+{
+background: @color-primary;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+min-height: 500px;
+.value-header, .header{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.header{
+  background: @color-text-primary;
+  justify-content: space-around;
+  padding: 15px 30px;
+}
+.value-header{
+  background: @color-participante-backgroun;
+  justify-content: space-between;
+  padding: 15px 30px 15px 90px;
+}
+.body-code{
+  .actions{
+    display: flex;
+    align-items: center;
+    padding: 15px 40px;
+    justify-content: space-between;
+    .icon{
+      color: green;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .buttons{
+      display: flex;
+    gap: 20px;
+    .button{
+      background: @color-background-button-enter;
+      border: 2px solid @color-background-button-enter;
+      gap: 20px;     }
+    }
+
+  }
+}
+}
+.box-code{
+  margin: 0 40px 30px 40px;
+}
+textarea{
+  min-height: 300px!important;
+  text-align: left!important;
+}

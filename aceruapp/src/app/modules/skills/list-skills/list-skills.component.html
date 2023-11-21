@@ -1,0 +1,120 @@
+<div class="container-list-skills">
+  <div class="row-title">
+    <div class="title text-secondary">Maratones</div>
+  </div>
+  <hr class="separator">
+  <div class="row-actions ">
+    <div class="buttons ">
+      <button *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')" class="button hiddenParticipante"
+        routerLink="/skills/new-skill">
+        <i class="fas fa-plus"></i> Crear maratón</button>
+    </div>
+    <div>
+      <mat-checkbox color="primary" class="example-margin" [(ngModel)]="showInactivos" (click)="mostrarInactivos()">
+        Mostrar Terminadas</mat-checkbox>
+    </div>
+  </div>
+  <div class="body-list">
+    <mat-card>
+      <div class="row">
+        <div class="row">
+          <div class="col">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-8">
+                      <mat-form-field style="width: 30%;">
+                        <mat-label>Filtrar búsqueda</mat-label>
+                        <input matInput (keyup)="aplicarFiltro($event)" placeholder="Nombre de la competencia" #input>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource">
+                  <ng-container matColumnDef="ID">
+                    <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Id</th>
+                    <td mat-cell *matCellDef="let fila" style="width: 10%;"> {{fila.id}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="COMPETENCIA">
+                    <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Competencia </th>
+                    <td mat-cell *matCellDef="let fila" style="width: 20%;"> {{fila.nombre}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="FECHA INICIO">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de inicio </th>
+                    <td mat-cell *matCellDef="let fila">
+                      <span class="fecha-inicio">{{ fila.fechaInicio | date:'yyyy-MM-dd' }}</span>
+                      <span class="hora-inicio"
+                        style="color: black; font-size: 15px; font-weight: bold;">{{ fila.fechaInicio | date: '   HH:mm:ss' }}</span>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="FECHA FINAL">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de final </th>
+                    <td mat-cell *matCellDef="let fila">
+                      <span class="fecha-inicio">{{ fila.fechaFinal | date:'yyyy-MM-dd' }}</span>
+                      <span class="hora-inicio"
+                        style="color: black; font-size: 15px; font-weight: bold;">{{ fila.fechaFinal | date: '   HH:mm:ss' }}</span>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="ESTADO">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+
+                    <td mat-cell *matCellDef="let fila">
+                      <div [ngClass]="{
+                                    'badge badge-success': fila.estado === 'VIGENTE',
+                                    'badge badge-info': fila.dificultad === 'VIGENTE2',
+                                    'badge badge-warning': fila.estado === 'TERMINADO',
+                                    'badge badge-danger': fila.dificultad === 'VIGENTE2'
+                                  }">
+                        {{ fila.estado }}
+                      </div>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="TIEMPO DE COMPETENCIA">
+                    <th mat-header-cell *matHeaderCellDef> Tiempo de Competencia </th>
+                    <td mat-cell *matCellDef="let fila">{{ calculateTimeDifference(fila.fechaInicio, fila.fechaFinal)}}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="ACCIONES">
+                    <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Acciones </th>
+                    <td mat-cell *matCellDef="let fila" style="width: 10%;">
+                      <a class="pointer iconosAccion" matTooltip="Editar problema"
+                        *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')" (click)="editarCompetencia(fila)">
+                        <mat-icon class="success-icon">
+                          <i class="fa-solid fa-pen-to-square" style="color: #036839;"></i>
+                        </mat-icon>
+                      </a>
+                      <a class="pointer iconosAccion" matTooltip="Eliminar material"
+                        *ngIf="tokenService.getAuthorities().includes('ROLE_ADMIN')"
+                        (click)="eliminarCompetencia(fila)">
+                        <mat-icon class="danger-icon">
+                          <i class="fa-solid fa-trash-can"></i>
+                        </mat-icon>
+                      </a>
+                      <a class="pointer iconosAccion" matTooltip="Visualizar competencia"
+                        (click)="detalleCompetencia(fila)">
+                        <mat-icon class="info-icon">
+                          <i class="fa-solid fa-eye" style="color: #183153;"></i>
+                        </mat-icon>
+                      </a>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+                  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label="">
+                </mat-paginator>
+              </div>
+            </mat-card-content>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

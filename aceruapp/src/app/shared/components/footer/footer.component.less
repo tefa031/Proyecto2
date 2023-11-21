@@ -1,0 +1,51 @@
+@import "../../shared-styles/shared-styles.less";
+
+.container-footer{
+background: @color-background-footer;
+display:flex;
+flex-direction: column;
+width: 100%;
+min-height: 270px;
+box-shadow: inset 0px 0px 22px -1px #000000;
+color: @color-text-primary;
+.info-footer{
+display: flex;
+margin: 40px 40px 0 40px;
+height: 90%;
+justify-content: space-between;
+.info-aceru,.resources,.try-it-now {
+  display: flex;
+  flex-direction: column;
+}
+.info-aceru{
+  width: 50%;
+  .description-aceru{
+
+    margin: 20px 0;
+
+  }
+  .project-managers{
+display: flex;
+flex-direction: column;
+gap: 5px;
+  }
+}
+.resources{
+  gap: 15px;
+  width: 20%;
+
+}
+.try-it-now{
+  gap: 15px;
+  width: 20%;
+
+}
+}
+.copyright{
+  margin: 10px 40px 30px 40px;
+  height: 10%;
+}
+}
+.separator{
+  height: 5px!important;
+}

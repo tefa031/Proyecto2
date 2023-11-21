@@ -1,0 +1,78 @@
+@import "../../shared-styles/shared-styles.less";
+
+table {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  border-spacing: 0 10px;
+
+  thead {
+    background-color: @color-primary;
+    color: @color-text-primary;
+  }
+
+  th {
+    padding: 17px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  td {
+    font-weight: normal;
+    padding: 5px;
+    border-bottom: 2px solid @color-primary;
+    border-top: 2px solid @color-primary;
+    height: 25px !important;
+  }
+
+}
+
+th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+td:first-child {
+  border-left: 2px solid @color-primary;
+  border-radius: 10px 0 0 10px;
+}
+
+td:last-child {
+  border-right: 2px solid @color-primary;
+  border-radius: 0 10px 10px 0;
+}
+
+img {
+  width: 25px;
+  cursor: pointer
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --backgroundBtn:transparent;
+  a {
+    width: max-content;
+  }
+  .aState{
+    width: 70px;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 7px;
+    background: var(--backgroundBtn);
+  }
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+}

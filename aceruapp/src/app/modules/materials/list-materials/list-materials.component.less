@@ -1,0 +1,152 @@
+@import "../../../shared/shared-styles/shared-styles.less";
+.container-categories{
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  height: 100%;
+  .title{
+    margin-bottom: 30px;
+  }
+  .actions{
+    display: flex;
+    justify-content: space-between;
+    button{
+background: @color-background-button-enter;
+border:2px solid @color-background-button-enter;
+    }
+  }
+  .body-categories{
+    margin: 50px 30px 0 30px;
+  }
+}
+
+.search {
+  position: absolute;
+  right: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.iconosAccion {
+margin: 3px;
+}
+.success-icon{
+color:green
+}
+.danger-icon{
+color:red
+}
+.pdf-icon{
+color:rgb(97, 74, 74)
+}
+
+.ppt-icon{
+  color: orange;
+}
+
+.example-margin {
+margin: 0 10px;
+}
+
+.badge-success {
+  width: 27px;
+  //height: 10px;
+  background-color: #dc3545; /* Color verde */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-info {
+  width: 40px;
+  background-color: #17a2b8; /* Color azul claro */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-warning {
+  width: 36px;
+  background-color: #ffc107; /* Color amarillo */
+  border-radius: 10px; /* Borde circular */
+  padding: 3px 7px; /* Espaciado interno */
+  color: black; /* Texto en negro */
+}
+
+.badge-danger {
+  width: 18%;
+  background-color: #dc3545; /* Color rojo */
+  border-radius: 0; /* Sin bordes redondeados */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-ppt {
+  width: 26px;
+  background-color: rgb(167, 119, 18); /* Color rojo */
+  border-radius: 10px; /* Sin bordes redondeados */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-txt {
+  width: 26px;
+  background-color: rgb(124, 124, 124); /* Color rojo */
+  border-radius: 10px; /* Sin bordes redondeados */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+.badge-excel {
+  width: 39px;
+  background-color: rgb(12, 92, 9); /* Color rojo */
+  border-radius: 10px; /* Sin bordes redondeados */
+  padding: 3px 7px; /* Espaciado interno */
+  color: white; /* Texto en blanco */
+}
+
+/* Establece anchos fijos para las columnas en la tabla */
+.mat-table {
+  table-layout: fixed;
+  width: 100%; /* Ancho total de la tabla */
+}
+
+/* Define anchos fijos para las columnas en porcentaje */
+// .mat-column-ID{
+//   width: 7%;
+// }
+
+// .mat-column-MATERIAL{
+//   width: 13%;
+// }
+
+// .mat-column-TIPO-MATERIAL{
+//   width: 10%;
+// }
+
+// .mat-column-ACCIONES {
+//   width: 10%; /* Puedes ajustar el porcentaje según tus necesidades */
+// }
+
+// .mat-column-DESCRIPCION{
+//   width: 70%;
+// }
+
+/* Asegúrate de que el contenido en las celdas no se desborde */
+.mat-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Permite el desplazamiento vertical en celdas con contenido largo */
+.mat-column-DESCRIPCION {
+  width: 30%; /* Ancho fijo para la columna DESCRIPCION */
+  white-space: normal;
+  word-wrap: break-word; /* Rompe palabras largas si es necesario */
+  max-height: 100px; /* Ajusta la altura máxima deseada */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+}
+

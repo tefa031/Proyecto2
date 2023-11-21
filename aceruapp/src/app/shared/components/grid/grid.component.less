@@ -1,0 +1,45 @@
+@import "../../shared-styles/shared-styles.less";
+.container-grid
+{
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(min(100%,14em),1fr));
+grid-column-gap: 40px;
+grid-row-gap: 40px;
+.card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  align-items: center;
+  box-shadow: 0px 0px 30px 0px @color-btn-content;
+  cursor: pointer;
+  .card-image{
+width: 100%;
+height: 80%;
+img{
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+  }
+  .card-title{
+  background:  @color-participante-backgroun;
+  width: 100%;
+  text-align: center;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .card-actions
+  {
+    display: flex;
+    gap: 10px;
+    width: 90%;
+    justify-content: flex-end;
+    position: absolute;
+      img{
+        width:30px
+      }
+  }
+}
+}
